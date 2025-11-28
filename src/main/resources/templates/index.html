@@ -201,23 +201,19 @@
     function loadGroupsForSong(genreId) {
         const groupSelect = document.getElementById('songGroupSelect');
 
-        // 1. Очищаємо список
         groupSelect.innerHTML = '<option value="" disabled selected>Завантаження...</option>';
         groupSelect.disabled = true;
 
-        // 2. Робимо запит на сервер
         fetch('/api/groups-by-genre?genreId=' + genreId)
             .then(response => response.json())
             .then(data => {
-                groupSelect.innerHTML = ''; // Очищаємо "Завантаження..."
+                groupSelect.innerHTML = '';
 
-                // Перевіряємо, чи є групи
                 if (Object.keys(data).length === 0) {
                     groupSelect.innerHTML = '<option value="" disabled selected>У цьому жанрі немає груп</option>';
                     groupSelect.disabled = true;
                 } else {
                     groupSelect.disabled = false;
-                    // Додаємо опції (ключ = ID, значення = Ім'я)
                     for (const [id, name] of Object.entries(data)) {
                         const option = document.createElement('option');
                         option.value = id;

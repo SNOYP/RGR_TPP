@@ -22,15 +22,12 @@ public class CustomUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        // 1. Отримуємо з'єднання
         Connection conn = connector.getConnection();
 
-        // 2. Якщо бази даних немає - викидаємо помилку
         if (conn == null) {
             throw new UsernameNotFoundException("Немає підключення до бази даних");
         }
 
-        // 3. Виконуємо запит
         try (PreparedStatement pstmt = conn.prepareStatement("SELECT username, password, role FROM users WHERE username = ?")) {
 
             pstmt.setString(1, username);
@@ -48,7 +45,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         } catch (Exception e) {
             throw new UsernameNotFoundException("Error loading user", e);
         } finally {
-            // 4. Обов'язково закриваємо з'єднання
             DatabaseConnector.close(conn);
         }
     }

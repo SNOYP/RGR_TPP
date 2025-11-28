@@ -1,17 +1,14 @@
--- Таблиця Жанрів (ID тепер SERIAL)
 CREATE TABLE IF NOT EXISTS genres (
                                       id SERIAL PRIMARY KEY,
                                       name VARCHAR(255) NOT NULL
 );
 
--- Таблиця Груп (додано ON DELETE CASCADE)
 CREATE TABLE IF NOT EXISTS groups (
                                       id SERIAL PRIMARY KEY,
                                       name VARCHAR(255) NOT NULL,
                                       genre_id INT REFERENCES genres(id) ON DELETE CASCADE
 );
 
--- Таблиця Пісень (додано ON DELETE CASCADE)
 CREATE TABLE IF NOT EXISTS songs (
                                      id SERIAL PRIMARY KEY,
                                      title VARCHAR(255) NOT NULL,

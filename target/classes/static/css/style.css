@@ -1,15 +1,12 @@
-/* style.css - Complete Modern Dark Theme */
-
-/* --- 1. GLOBAL VARIABLES & RESET --- */
 :root {
-    --bg-color: #121212;         /* Глибокий чорний фон */
-    --card-bg: #1e1e1e;          /* Трохи світліший фон для карток */
-    --primary-color: #00bcd4;    /* Cyan (Основний акцент) */
-    --accent-color: #ff4081;     /* Pink (Акцент для реєстрації) */
-    --text-main: #ffffff;        /* Білий текст */
-    --text-muted: #b3b3b3;       /* Сірий текст */
-    --border-radius: 12px;       /* Загальне заокруглення */
-    --transition: all 0.3s ease; /* Плавність анімацій */
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --primary-color: #00bcd4;
+    --accent-color: #ff4081;
+    --text-main: #ffffff;
+    --text-muted: #b3b3b3;
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
 }
 
 body {
@@ -21,8 +18,6 @@ body {
     line-height: 1.6;
 }
 
-/* --- 2. AUTH PAGES (LOGIN & REGISTER) --- */
-/* Цей клас додається до body тільки на сторінках входу */
 body.auth-page {
     display: flex;
     justify-content: center;
@@ -64,18 +59,17 @@ body.auth-page {
     font-weight: 700;
 }
 
-/* Стилі полів вводу саме для форм авторизації */
 .auth-form .form-group {
     margin-bottom: 15px;
 }
 
 .auth-form .form-group input {
     width: 100%;
-    box-sizing: border-box; /* Щоб padding не ламав ширину */
+    box-sizing: border-box;
     background-color: #252525;
     border: 1px solid #333;
     padding: 15px;
-    border-radius: 50px; /* Повністю круглі поля */
+    border-radius: 50px;
     text-align: center;
     font-size: 1rem;
     color: white;
@@ -136,14 +130,12 @@ body.auth-page {
     text-decoration: underline;
 }
 
-/* --- 3. MAIN APP LAYOUT (INDEX.HTML) --- */
 .container {
     max-width: 1200px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-/* Header */
 .app-header {
     display: flex;
     justify-content: space-between;
@@ -210,7 +202,6 @@ body.auth-page {
     box-shadow: 0 4px 12px rgba(211, 47, 47, 0.4);
 }
 
-/* --- 4. ADMIN FORMS --- */
 .admin-panel {
     display: flex;
     gap: 20px;
@@ -242,7 +233,6 @@ body.auth-page {
     font-size: 0.9rem;
 }
 
-/* Стилі полів вводу для адмін-панелі (прямокутні) */
 .form-section input, .form-section select {
     width: 100%;
     box-sizing: border-box;
@@ -279,7 +269,6 @@ body.auth-page {
     box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
 }
 
-/* --- 5. TABLES --- */
 .section-title {
     color: var(--primary-color);
     margin-top: 40px;
@@ -342,7 +331,6 @@ td:first-child {
     font-family: monospace;
 }
 
-/* --- 6. ALERTS --- */
 .alert {
     padding: 15px 20px;
     border-radius: var(--border-radius);

@@ -42,24 +42,19 @@ public class MainController {
         return "index";
     }
 
-    // --- API ДЛЯ ФІЛЬТРАЦІЇ (AJAX) ---
     @GetMapping("/api/groups-by-genre")
     @ResponseBody
     public ResponseEntity<Map<Integer, String>> getGroupsByGenre(@RequestParam int genreId) {
         try {
-            // Використовуємо метод, який вже є у вашому сервісі
             return ResponseEntity.ok(crudService.getGroupsByGenre(genreId));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new HashMap<>());
         }
     }
 
-    // --- ДОДАВАННЯ ---
-
     @PostMapping("/api/add-genre")
     @ResponseBody
     public ResponseEntity<String> addGenre(@RequestParam String name) {
-        // ID тепер автоматичний, передаємо тільки ім'я
         try {
             Map<String, String> params = new HashMap<>();
             params.put("name", name);
@@ -99,7 +94,6 @@ public class MainController {
         }
     }
 
-    // --- ВИДАЛЕННЯ ---
     @PostMapping("/api/delete-item")
     @ResponseBody
     public ResponseEntity<String> deleteItem(@RequestParam String table, @RequestParam int id) {
