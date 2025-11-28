@@ -1,0 +1,9 @@
+/target/
+/.idea/
+*.iml
+.DS_Store
+/out/
+/logs/
+*.class
+*.log
+.mvn/wrapper/maven-wrapper.properties
