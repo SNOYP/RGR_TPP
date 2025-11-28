@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Реєстрація</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="auth-page">
+
+<div class="auth-card" style="border-top: 4px solid var(--accent-color);">
+    <div class="auth-header">
+        <i class="fas fa-user-plus" style="background: none; -webkit-text-fill-color: var(--accent-color); color: var(--accent-color);"></i>
+        <h2>Новий акаунт</h2>
+    </div>
+
+    <div th:if="${param.error}" class="alert alert-danger">
+        Це ім'я вже зайняте!
+    </div>
+
+    <form th:action="@{/auth/register}" method="post" class="auth-form">
+        <div class="form-group">
+            <input type="text" name="username" placeholder="Придумайте логін" required autocomplete="off"/>
+        </div>
+        <div class="form-group">
+            <input type="password" name="password" placeholder="Придумайте пароль" required/>
+        </div>
+        <button type="submit" class="btn-auth btn-register-submit">
+            Створити акаунт
+        </button>
+    </form>
+
+    <div class="auth-footer">
+        Вже є акаунт? <br>
+        <a href="/login" style="color: var(--accent-color);">Повернутися до входу</a>
+    </div>
+</div>
+
+</body>
+</html>

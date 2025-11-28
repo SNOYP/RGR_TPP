@@ -1,4 +1,4 @@
-package hello;
+package hello.service;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,6 +10,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import hello.DatabaseConnector;
 import org.springframework.stereotype.Service;
 
 @Service
